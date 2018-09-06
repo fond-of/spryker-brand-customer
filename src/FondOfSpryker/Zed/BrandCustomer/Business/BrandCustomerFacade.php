@@ -2,6 +2,7 @@
 
 namespace FondOfSpryker\Zed\BrandCustomer\Business;
 
+use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
@@ -15,10 +16,22 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function expandCustomerTransferWithBrandIds(CustomerTransfer $customerTransfer): CustomerTransfer
+    public function expandCustomerTransferWithBrands(CustomerTransfer $customerTransfer): CustomerTransfer
     {
         return $this->getFactory()
             ->createCustomerExpander()
-            ->expandCustomerTransferWithBrandIds($customerTransfer);
+            ->expandCustomerTransferWithBrands($customerTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return \Generated\Shared\Transfer\BrandTransfer
+     */
+    public function expandBrandTransferWithCustomerRelation(BrandTransfer $brandTransfer): BrandTransfer
+    {
+        return $this->getFactory()
+            ->createBrandExpander()
+            ->expandBrandTransferWithCustomerRelations($brandTransfer);
     }
 }

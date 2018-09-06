@@ -22,6 +22,6 @@ class BrandCustomerTransferExpander extends AbstractPlugin implements CustomerTr
      */
     public function expandTransfer(CustomerTransfer $customerTransfer): CustomerTransfer
     {
-        return $this->getFacade()->expandCustomerTransferWithBrandIds($customerTransfer);
+        return $this->getFacade()->expandCustomerTransferWithBrands($customerTransfer);
     }
 }

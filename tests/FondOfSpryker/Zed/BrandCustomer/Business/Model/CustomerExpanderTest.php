@@ -79,21 +79,13 @@ class CustomerExpanderTest extends Unit
             ->willReturn($this->brandsMock);
 
         $this->brandsMock[0]->expects($this->atLeastOnce())
-            ->method('getType')
-            ->willReturn('whitelist');
-
-        $this->brandsMock[0]->expects($this->atLeastOnce())
             ->method('getIdBrand')
             ->willReturn(1);
-
-        $this->brandsMock[1]->expects($this->atLeastOnce())
-            ->method('getType')
-            ->willReturn('blacklist');
 
         $this->brandsMock[1]->expects($this->atLeastOnce())
             ->method('getIdBrand')
             ->willReturn(2);
 
-        $this->customerExpander->expandCustomerTransferWithBrandIds($this->customerTransfer);
+        $this->customerExpander->expandCustomerTransferWithBrands($this->customerTransfer);
     }
 }

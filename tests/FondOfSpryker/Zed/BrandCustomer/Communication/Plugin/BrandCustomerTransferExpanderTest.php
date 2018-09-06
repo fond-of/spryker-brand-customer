@@ -49,7 +49,7 @@ class BrandCustomerTransferExpanderTest extends Unit
     public function test(): void
     {
         $this->brandCustomerFacade->expects($this->atLeastOnce())
-            ->method('expandCustomerTransferWithBrandIds')
+            ->method('expandCustomerTransferWithBrands')
             ->with($this->customerTransferMock)
             ->willReturn($this->customerTransferMock);
 

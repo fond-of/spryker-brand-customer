@@ -11,5 +11,5 @@ interface CustomerExpanderInterface
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function expandCustomerTransferWithBrandIds(CustomerTransfer $customerTransfer): CustomerTransfer;
+    public function expandCustomerTransferWithBrands(CustomerTransfer $customerTransfer): CustomerTransfer;
 }

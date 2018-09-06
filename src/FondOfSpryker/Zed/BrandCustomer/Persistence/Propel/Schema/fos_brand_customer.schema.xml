@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     name="zed"
     xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
-    namespace="Orm\Zed\Brand\Persistence"
-    package="src.Orm.Zed.Brand.Persistence">
+    namespace="Orm\Zed\BrandCustomer\Persistence"
+    package="src.Orm.Zed.BrandCustomer.Persistence">
 
     <table name="fos_brand_customer" isCrossRef="true">
         <column name="fk_brand" type="integer" primaryKey="true"/>

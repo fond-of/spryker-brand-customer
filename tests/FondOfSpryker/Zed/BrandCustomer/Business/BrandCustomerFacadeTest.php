@@ -61,10 +61,10 @@ class BrandCustomerFacadeTest extends Unit
             ->willReturn($this->customerExpanderMock);
 
         $this->customerExpanderMock->expects($this->atLeastOnce())
-            ->method('expandCustomerTransferWithBrandIds')
+            ->method('expandCustomerTransferWithBrands')
             ->willReturn($this->customerTransferMock);
 
-        $actualCustomerTransfer = $this->brandCustomerFacade->expandCustomerTransferWithBrandIds($this->customerTransferMock);
+        $actualCustomerTransfer = $this->brandCustomerFacade->expandCustomerTransferWithBrands($this->customerTransferMock);
 
         $this->assertEquals($this->customerTransferMock, $actualCustomerTransfer);
     }

@@ -2,6 +2,8 @@
 
 namespace FondOfSpryker\Zed\BrandCustomer\Business;
 
+use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandExpander;
+use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandExpanderInterface;
 use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandReader;
 use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandReaderInterface;
 use FondOfSpryker\Zed\BrandCustomer\Business\Model\CustomerExpander;
@@ -27,5 +29,13 @@ class BrandCustomerBusinessFactory extends AbstractBusinessFactory
     public function createCustomerExpander(): CustomerExpanderInterface
     {
         return new CustomerExpander($this->createBrandReader());
+    }
+
+    /**
+     * @return \FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandExpanderInterface
+     */
+    public function createBrandExpander(): BrandExpanderInterface
+    {
+        return new BrandExpander($this->createBrandReader());
     }
 }

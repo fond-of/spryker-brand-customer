@@ -3,6 +3,7 @@
 namespace FondOfSpryker\Zed\BrandCustomer\Persistence;
 
 use Generated\Shared\Transfer\BrandCollectionTransfer;
+use Generated\Shared\Transfer\BrandCustomerRelationTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
@@ -34,6 +35,32 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
                 $brandCustomerMapper->mapBrand($brandEntity, new BrandTransfer())
             );
         }
+
+        return $brandCollectionTransfer;
+    }
+
+    /**
+     * @param int $idBrand
+     *
+     * @return \Generated\Shared\Transfer\BrandCustomerRelationTransfer
+     */
+    public function getCustomerCollectionByBrandId(int $idBrand): BrandCustomerRelationTransfer
+    {
+        /** @var \Orm\Zed\BrandCustomer\Persistence\FosBrandCustomer[] $brandCustomerEntities */
+        $brandCustomerEntities = $this->getFactory()
+            ->getBrandCustomerQuery()
+            ->filterByFkBrand($idBrand)
+            ->endUse()
+            ->find();
+
+        $customerIds = [];
+        foreach ($brandCustomerEntities as $entity) {
+            $customerIds[] = $entity->getFkCustomer();
+        }
+
+        $brandCollectionTransfer = new BrandCustomerRelationTransfer();
+        $brandCollectionTransfer->setIdBrand($idBrand);
+        $brandCollectionTransfer->setCustomerIds($customerIds);
 
         return $brandCollectionTransfer;
     }

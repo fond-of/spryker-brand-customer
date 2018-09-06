@@ -22,6 +22,14 @@ class BrandCustomerPersistenceFactory extends AbstractPersistenceFactory
     }
 
     /**
+     * @return \Orm\Zed\BrandCustomer\Persistence\FosBrandCustomerQuery
+     */
+    public function getBrandCustomerQuery(): FosBrandQuery
+    {
+        return $this->getProvidedDependency(BrandCustomerDependencyProvider::PROPEL_QUERY_BRAND_CUSTOMER);
+    }
+
+    /**
      * @return \FondOfSpryker\Zed\BrandCustomer\Persistence\Propel\Mapper\BrandCustomerMapperInterface
      */
     public function createBrandCustomerMapper(): BrandCustomerMapperInterface

@@ -2,9 +2,8 @@
 
 namespace FondOfSpryker\Zed\BrandCustomer\Business\Model;
 
-use Generated\Shared\Transfer\CustomerBrandCollectionTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\BrandCollectionTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 
 class CustomerExpander implements CustomerExpanderInterface
 {
@@ -26,9 +25,9 @@ class CustomerExpander implements CustomerExpanderInterface
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function expandCustomerTransferWithBrandIds(CustomerTransfer $customerTransfer): CustomerTransfer
+    public function expandCustomerTransferWithBrands(CustomerTransfer $customerTransfer): CustomerTransfer
     {
-        $customerTransfer->setBrandCollection(new CustomerBrandCollectionTransfer());
+        $customerTransfer->setBrandCollection(new BrandCollectionTransfer());
 
         $brandCollectionTransfer = $this->brandReader->getBrandCollectionByIdCustomerId(
             $customerTransfer
@@ -45,13 +44,10 @@ class CustomerExpander implements CustomerExpanderInterface
      *
      * @return void
      */
-    protected function addBrandsToCustomerTransfer(
-        CustomerTransfer $customerTransfer,
-        BrandCollectionTransfer $brandCollectionTransfer
-    ): void {
+    protected function addBrandsToCustomerTransfer(CustomerTransfer $customerTransfer, BrandCollectionTransfer $brandCollectionTransfer): void
+    {
         foreach ($brandCollectionTransfer->getBrands() as $brandTransfer) {
-            $idBrand = $brandTransfer->getIdBrand();
-            $customerTransfer->getBrandCollection()->add($idBrand);
+            $customerTransfer->getBrandCollection()->addBrand($brandTransfer);
         }
     }
 }
