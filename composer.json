@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "spryker/brand": "dev-master",
+        "fond-of-spryker/brand": "dev-master",
         "spryker/customer": "^7.0.0"
     },
     "require-dev": {
