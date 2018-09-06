@@ -2,7 +2,6 @@
 
 namespace FondOfSpryker\Zed\BrandCustomer;
 
-use Closure;
 use Codeception\Test\Unit;
 use Spryker\Zed\Kernel\Container;
 
@@ -29,20 +28,5 @@ class BrandCustomerDependencyProviderTest extends Unit
         $this->containerMock = $this->getMockBuilder(Container::class)
             ->disableOriginalConstructor()
             ->getMock();
-    }
-
-    /**
-     * @return void
-     */
-    public function testProvidePersistenceLayerDependencies(): void
-    {
-        $this->containerMock->expects($this->atLeastOnce())
-            ->method('offsetSet')
-            ->with(
-                BrandCustomerDependencyProvider::PROPEL_QUERY_BRAND,
-                $this->isInstanceOf(Closure::class)
-            );
-
-        $this->brandCustomerDependencyProvider->providePersistenceLayerDependencies($this->containerMock);
     }
 }

@@ -6,6 +6,7 @@ use FondOfSpryker\Zed\BrandCustomer\BrandCustomerDependencyProvider;
 use FondOfSpryker\Zed\BrandCustomer\Persistence\Propel\Mapper\BrandCustomerMapper;
 use FondOfSpryker\Zed\BrandCustomer\Persistence\Propel\Mapper\BrandCustomerMapperInterface;
 use Orm\Zed\Brand\Persistence\FosBrandQuery;
+use Orm\Zed\BrandCustomer\Persistence\FosBrandCustomerQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
 /**
@@ -24,7 +25,7 @@ class BrandCustomerPersistenceFactory extends AbstractPersistenceFactory
     /**
      * @return \Orm\Zed\BrandCustomer\Persistence\FosBrandCustomerQuery
      */
-    public function getBrandCustomerQuery(): FosBrandQuery
+    public function getBrandCustomerQuery(): FosBrandCustomerQuery
     {
         return $this->getProvidedDependency(BrandCustomerDependencyProvider::PROPEL_QUERY_BRAND_CUSTOMER);
     }

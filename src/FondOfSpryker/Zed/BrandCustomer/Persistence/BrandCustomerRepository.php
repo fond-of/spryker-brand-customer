@@ -49,9 +49,7 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
         /** @var \Orm\Zed\BrandCustomer\Persistence\FosBrandCustomer[] $brandCustomerEntities */
         $brandCustomerEntities = $this->getFactory()
             ->getBrandCustomerQuery()
-            ->filterByFkBrand($idBrand)
-            ->endUse()
-            ->find();
+            ->findByFkBrand($idBrand);
 
         $customerIds = [];
         foreach ($brandCustomerEntities as $entity) {
