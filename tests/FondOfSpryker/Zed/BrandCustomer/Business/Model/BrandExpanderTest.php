@@ -3,6 +3,8 @@
 namespace FondOfSpryker\Zed\BrandCustomer\Business\Model;
 
 use Codeception\Test\Unit;
+use Generated\Shared\Transfer\BrandCustomerRelationTransfer;
+use Generated\Shared\Transfer\BrandTransfer;
 
 class BrandExpanderTest extends Unit
 {
@@ -15,11 +17,6 @@ class BrandExpanderTest extends Unit
      * @var \FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandExpanderInterface
      */
     protected $brandExpander;
-
-    /**
-     * @var \Generated\Shared\Transfer\BrandTransfer|\PHPUnit\Framework\MockObject\MockObject
-     */
-    protected $brandTransferMock;
 
     /**
      * @var \Generated\Shared\Transfer\BrandCustomerRelationTransfer|\PHPUnit\Framework\MockObject\MockObject
@@ -42,11 +39,6 @@ class BrandExpanderTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->brandTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandTransfer')
-            ->disableOriginalConstructor()
-            ->setMethods(['requireIdBrand', 'getIdBrand'])
-            ->getMock();
-
         $this->brandCustomerRelationTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandCustomerRelationTransfer')
             ->disableOriginalConstructor()
             ->getMock();
@@ -59,13 +51,16 @@ class BrandExpanderTest extends Unit
      */
     public function testExpandBrandTransferWithCustomerRelations(): void
     {
+        $brandTransfer = new BrandTransfer();
+
         $this->brandReaderMock
             ->expects($this->once())
             ->method('getCustomerCollectionByBrand')
-            ->with($this->brandTransferMock)
+            ->with($brandTransfer)
             ->willReturn($this->brandCustomerRelationTransferMock);
 
-        $brandTransfer = $this->brandExpander->expandBrandTransferWithCustomerRelations($this->brandTransferMock);
-        $this->assertSame($brandTransfer->getBrandCustomerRelation(), $this->brandCustomerRelationTransferMock);
+        $brandTransfer = $this->brandExpander->expandBrandTransferWithCustomerRelations($brandTransfer);
+
+        $this->assertInstanceOf(BrandCustomerRelationTransfer::class, $brandTransfer->getBrandCustomerRelation());
     }
 }
