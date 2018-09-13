@@ -3,6 +3,7 @@
 namespace FondOfSpryker\Zed\BrandCustomer\Business;
 
 use Codeception\Test\Unit;
+use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandExpander;
 use FondOfSpryker\Zed\BrandCustomer\Business\Model\CustomerExpander;
 
 class BrandCustomerFacadeTest extends Unit
@@ -13,9 +14,9 @@ class BrandCustomerFacadeTest extends Unit
     protected $customerTransferMock;
 
     /**
-     * @var \FondOfSpryker\Zed\BrandCustomer\Business\Model\CustomerExpander|\PHPUnit\Framework\MockObject\MockObject
+     * @var \Generated\Shared\Transfer\BrandTransfer|\PHPUnit\Framework\MockObject\MockObject
      */
-    protected $customerExpanderMock;
+    protected $brandTransferMock;
 
     /**
      * @var \FondOfSpryker\Zed\BrandCustomer\Business\BrandCustomerBusinessFactory|\PHPUnit\Framework\MockObject\MockObject
@@ -38,7 +39,7 @@ class BrandCustomerFacadeTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->customerExpanderMock = $this->getMockBuilder(CustomerExpander::class)
+        $this->brandTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandTransfer')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -47,7 +48,6 @@ class BrandCustomerFacadeTest extends Unit
             ->getMock();
 
         $this->brandCustomerFacade = new BrandCustomerFacade();
-
         $this->brandCustomerFacade->setFactory($this->brandCustomerBusinessFactoryMock);
     }
 
@@ -56,16 +56,42 @@ class BrandCustomerFacadeTest extends Unit
      */
     public function testExpandCustomerTransferWithBrandIds(): void
     {
+        $customerExpanderMock = $this->getMockBuilder(CustomerExpander::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $this->brandCustomerBusinessFactoryMock->expects($this->atLeastOnce())
             ->method('createCustomerExpander')
-            ->willReturn($this->customerExpanderMock);
+            ->willReturn($customerExpanderMock);
 
-        $this->customerExpanderMock->expects($this->atLeastOnce())
+        $customerExpanderMock->expects($this->atLeastOnce())
             ->method('expandCustomerTransferWithBrands')
             ->willReturn($this->customerTransferMock);
 
         $actualCustomerTransfer = $this->brandCustomerFacade->expandCustomerTransferWithBrands($this->customerTransferMock);
 
         $this->assertEquals($this->customerTransferMock, $actualCustomerTransfer);
+    }
+
+    /**
+     * @return void
+     */
+    public function testExpandBrandTransferWithCustomerRelation(): void
+    {
+        $brandExpanderMock = $this->getMockBuilder(BrandExpander::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->brandCustomerBusinessFactoryMock->expects($this->atLeastOnce())
+            ->method('createBrandExpander')
+            ->willReturn($brandExpanderMock);
+
+        $brandExpanderMock->expects($this->atLeastOnce())
+            ->method('expandBrandTransferWithCustomerRelations')
+            ->willReturn($this->brandTransferMock);
+
+        $actualCustomerTransfer = $this->brandCustomerFacade->expandBrandTransferWithCustomerRelation($this->brandTransferMock);
+
+        $this->assertEquals($this->brandTransferMock, $actualCustomerTransfer);
     }
 }

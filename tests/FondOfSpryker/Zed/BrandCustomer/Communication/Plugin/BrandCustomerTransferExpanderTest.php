@@ -39,16 +39,15 @@ class BrandCustomerTransferExpanderTest extends Unit
             ->getMock();
 
         $this->brandCustomerTransferExpander = new BrandCustomerTransferExpander();
-
         $this->brandCustomerTransferExpander->setFacade($this->brandCustomerFacade);
     }
 
     /**
      * @return void
      */
-    public function test(): void
+    public function testExpandTransfer(): void
     {
-        $this->brandCustomerFacade->expects($this->atLeastOnce())
+        $this->brandCustomerFacade->expects($this->once())
             ->method('expandCustomerTransferWithBrands')
             ->with($this->customerTransferMock)
             ->willReturn($this->customerTransferMock);

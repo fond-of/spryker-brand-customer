@@ -8,9 +8,9 @@ use Spryker\Zed\Kernel\Container;
 class BrandCustomerDependencyProviderTest extends Unit
 {
     /**
-     * @var \Spryker\Zed\Kernel\Container|\PHPUnit\Framework\MockObject\MockObject|null
+     * @var \Spryker\Zed\Kernel\Container
      */
-    protected $containerMock;
+    protected $container;
 
     /**
      * @var \FondOfSpryker\Zed\BrandCustomer\BrandCustomerDependencyProvider
@@ -24,9 +24,17 @@ class BrandCustomerDependencyProviderTest extends Unit
     {
         parent::_before();
 
+        $this->container = new Container();
         $this->brandCustomerDependencyProvider = new BrandCustomerDependencyProvider();
-        $this->containerMock = $this->getMockBuilder(Container::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+    }
+
+    /**
+     * @return void
+     */
+    public function testProvidePersistenceLayerDependencies(): void
+    {
+        $this->brandCustomerDependencyProvider->providePersistenceLayerDependencies($this->container);
+        $this->assertArrayHasKey(BrandCustomerDependencyProvider::PROPEL_QUERY_BRAND, $this->container);
+        $this->assertArrayHasKey(BrandCustomerDependencyProvider::PROPEL_QUERY_BRAND_CUSTOMER, $this->container);
     }
 }

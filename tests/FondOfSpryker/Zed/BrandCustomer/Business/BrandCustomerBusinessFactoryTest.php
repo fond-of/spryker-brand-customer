@@ -3,8 +3,9 @@
 namespace FondOfSpryker\Zed\BrandCustomer\Business;
 
 use Codeception\Test\Unit;
-use FondOfSpryker\Zed\BrandCustomer\Business\Model\CustomerExpanderInterface;
+use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandExpanderInterface;
 use FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandReaderInterface;
+use FondOfSpryker\Zed\BrandCustomer\Business\Model\CustomerExpanderInterface;
 use FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerRepository;
 
 class BrandCustomerBusinessFactoryTest extends Unit
@@ -31,7 +32,6 @@ class BrandCustomerBusinessFactoryTest extends Unit
             ->getMock();
 
         $this->brandCustomerBusinessFactory = new BrandCustomerBusinessFactory();
-
         $this->brandCustomerBusinessFactory->setRepository($this->repositoryMock);
     }
 
@@ -51,5 +51,14 @@ class BrandCustomerBusinessFactoryTest extends Unit
     {
         $customerExpander = $this->brandCustomerBusinessFactory->createCustomerExpander();
         $this->assertInstanceOf(CustomerExpanderInterface::class, $customerExpander);
+    }
+
+    /**
+     * @return void
+     */
+    public function testCreateBrandExpander(): void
+    {
+        $brandExpander = $this->brandCustomerBusinessFactory->createBrandExpander();
+        $this->assertInstanceOf(BrandExpanderInterface::class, $brandExpander);
     }
 }
