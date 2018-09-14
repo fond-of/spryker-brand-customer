@@ -16,7 +16,7 @@ class BrandTransferExpander extends AbstractPlugin implements BrandTransferExpan
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\BrandTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
      * @return \Generated\Shared\Transfer\BrandTransfer
      */
