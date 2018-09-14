@@ -10,9 +10,15 @@ if (!file_exists($pathToAutoloader)) {
 
 require_once $pathToAutoloader;
 
-define('APPLICATION_ENV', Environment::TESTING);
-define('APPLICATION_STORE', 'UNIT');
+if (!defined('APPLICATION_ENV')) {
+    define('APPLICATION_ENV', Environment::TESTING);
+}
 
-$x = vfsStream::setup('root');
+if (!defined('APPLICATION_STORE')) {
+    define('APPLICATION_STORE', 'UNIT');
+}
 
-define('APPLICATION_ROOT_DIR', $x->url());
+if (!defined('APPLICATION_ROOT_DIR')) {
+    $x = vfsStream::setup('root');
+    define('APPLICATION_ROOT_DIR', $x->url());
+}
