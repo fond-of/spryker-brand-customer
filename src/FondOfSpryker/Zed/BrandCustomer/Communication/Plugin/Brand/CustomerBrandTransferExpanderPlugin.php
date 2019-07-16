@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin;
+namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Brand;
 
 use FondOfSpryker\Zed\Brand\Dependency\Plugin\BrandTransferExpanderPluginInterface;
 use Generated\Shared\Transfer\BrandTransfer;
@@ -8,8 +8,9 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
  * @method \FondOfSpryker\Zed\BrandCustomer\Business\BrandCustomerFacadeInterface getFacade()
+ * @method \FondOfSpryker\Zed\BrandCustomer\BrandCustomerConfig getConfig()
  */
-class BrandTransferExpander extends AbstractPlugin implements BrandTransferExpanderPluginInterface
+class CustomerBrandTransferExpanderPlugin extends AbstractPlugin implements BrandTransferExpanderPluginInterface
 {
     /**
      * {@inheritdoc}
