@@ -29,9 +29,7 @@ class BrandExpander implements BrandExpanderInterface
     {
         $brandTransfer->setBrandCustomerRelation(new BrandCustomerRelationTransfer());
 
-        $brandCollectionTransfer = $this->brandReader->getCustomerCollectionByBrand(
-            $brandTransfer
-        );
+        $brandCollectionTransfer = $this->brandReader->getCustomerCollectionByBrand($brandTransfer);
 
         $this->addBrandsToCustomerTransfer($brandTransfer, $brandCollectionTransfer);
 

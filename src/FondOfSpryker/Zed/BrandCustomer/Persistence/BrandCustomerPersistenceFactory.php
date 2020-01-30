@@ -11,6 +11,8 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
 /**
  * @method \FondOfSpryker\Zed\BrandCustomer\BrandCustomerConfig getConfig()
+ * @method \FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerEntityManagerInterface getEntityManager()
+ * @method \FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerRepositoryInterface getRepository()
  */
 class BrandCustomerPersistenceFactory extends AbstractPersistenceFactory
 {
@@ -28,6 +30,14 @@ class BrandCustomerPersistenceFactory extends AbstractPersistenceFactory
     public function getBrandCustomerQuery(): FosBrandCustomerQuery
     {
         return $this->getProvidedDependency(BrandCustomerDependencyProvider::PROPEL_QUERY_BRAND_CUSTOMER);
+    }
+
+    /**
+     * @return \Orm\Zed\BrandCustomer\Persistence\FosBrandCustomerQuery
+     */
+    public function createBrandCustomerQuery(): FosBrandCustomerQuery
+    {
+        return FosBrandCustomerQuery::create();
     }
 
     /**

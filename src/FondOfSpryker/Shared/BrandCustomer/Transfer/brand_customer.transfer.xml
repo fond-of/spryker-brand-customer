@@ -12,7 +12,18 @@
         <property name="customerIds" type="int[]"/>
     </transfer>
 
+    <transfer name="CustomerBrandRelation">
+        <property name="idCustomer" type="int"/>
+        <property name="idBrands" type="int[]" singular="idBrands"/>
+        <property name="brands" type="Brand[]" singular="brands"/>
+    </transfer>
+
     <transfer name="Customer">
         <property name="brandCollection" type="BrandCollection"/>
     </transfer>
+
+    <transfer name="Brand">
+        <property name="idBrand" type="int"/>
+    </transfer>
+
 </transfers>

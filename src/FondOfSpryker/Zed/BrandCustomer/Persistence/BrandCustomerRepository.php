@@ -2,9 +2,11 @@
 
 namespace FondOfSpryker\Zed\BrandCustomer\Persistence;
 
+use ArrayObject;
 use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Generated\Shared\Transfer\BrandCustomerRelationTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
+use Orm\Zed\BrandCustomer\Persistence\Map\FosBrandCustomerTableMap;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
@@ -61,5 +63,53 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
         $brandCollectionTransfer->setCustomerIds($customerIds);
 
         return $brandCollectionTransfer;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
+     * @param int $idCompany
+     *
+     * @throws
+     *
+     * @return \ArrayObject|\Generated\Shared\Transfer\BrandTransfer[]
+     */
+    public function getRelatedBrandsByCustomerId(int $idCustomer): ArrayObject
+    {
+        $brandCustomerEntities = $this->getFactory()
+            ->createBrandCustomerQuery()
+            ->filterByFkCustomer($idCustomer)
+            ->find();
+
+        $relatedBrands = new ArrayObject();
+
+        foreach ($brandCustomerEntities as $brandCustomerEntity) {
+            $brandEntityTransfer = $brandCustomerEntity->getFosBrand();
+
+            $brandTransfer = new BrandTransfer();
+            $brandTransfer->fromArray($brandEntityTransfer->toArray(), true);
+
+            $relatedBrands->append($brandTransfer);
+        }
+
+        return $relatedBrands;
+    }
+
+    /**
+     * @param int $idBrand
+     *
+     * @return int[]
+     */
+    public function getRelatedCustomerIdsByIdBrand(int $idBrand): array
+    {
+        $brandCustomerQuery = $this->getFactory()
+            ->createBrandCustomerQuery()
+            ->select(FosBrandCustomerTableMap::COL_FK_CUSTOMER);
+
+        return $brandCustomerQuery
+            ->findByFkBrand($idBrand)
+            ->toArray();
     }
 }

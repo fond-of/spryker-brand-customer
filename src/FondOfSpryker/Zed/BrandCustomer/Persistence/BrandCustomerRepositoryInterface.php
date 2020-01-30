@@ -2,6 +2,7 @@
 
 namespace FondOfSpryker\Zed\BrandCustomer\Persistence;
 
+use ArrayObject;
 use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Generated\Shared\Transfer\BrandCustomerRelationTransfer;
 
@@ -20,4 +21,22 @@ interface BrandCustomerRepositoryInterface
      * @return \Generated\Shared\Transfer\BrandCustomerRelationTransfer
      */
     public function getCustomerCollectionByBrandId(int $idBrand): BrandCustomerRelationTransfer;
+
+    /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
+     * @param int $idCustomer
+     *
+     * @return \Generated\Shared\Transfer\BrandTransfer[]|\ArrayObject
+     */
+    public function getRelatedBrandsByCustomerId(int $idCustomer): ArrayObject;
+
+    /**
+     * @param int $idBrand
+     *
+     * @return int[]
+     */
+    public function getRelatedCustomerIdsByIdBrand(int $idBrand): array;
 }
