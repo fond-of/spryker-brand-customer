@@ -1,15 +1,15 @@
 <?php
 
-namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin;
+namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Zed\BrandCustomer\Business\BrandCustomerFacade;
 use Generated\Shared\Transfer\CustomerTransfer;
 
-class BrandCustomerTransferExpanderTest extends Unit
+class BrandCustomerTransferExpanderPluginTest extends Unit
 {
     /**
-     * @var \FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\BrandCustomerTransferExpander
+     * @var \FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer\BrandCustomerTransferExpanderPlugin
      */
     protected $brandCustomerTransferExpander;
 
@@ -38,7 +38,7 @@ class BrandCustomerTransferExpanderTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->brandCustomerTransferExpander = new BrandCustomerTransferExpander();
+        $this->brandCustomerTransferExpander = new BrandCustomerTransferExpanderPlugin();
         $this->brandCustomerTransferExpander->setFacade($this->brandCustomerFacade);
     }
 

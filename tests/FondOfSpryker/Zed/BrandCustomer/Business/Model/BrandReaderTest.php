@@ -4,6 +4,10 @@ namespace FondOfSpryker\Zed\BrandCustomer\Business\Model;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerRepositoryInterface;
+use Generated\Shared\Transfer\BrandCollectionTransfer;
+use Generated\Shared\Transfer\BrandCustomerRelationTransfer;
+use Generated\Shared\Transfer\BrandTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 
 class BrandReaderTest extends Unit
 {
@@ -46,21 +50,19 @@ class BrandReaderTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->brandCollectionTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandCollectionTransfer')
+        $this->brandCollectionTransferMock = $this->getMockBuilder(BrandCollectionTransfer::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->customerTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\CustomerTransfer')
+        $this->customerTransferMock = $this->getMockBuilder(CustomerTransfer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['requireIdCustomer', 'getIdCustomer'])
             ->getMock();
 
-        $this->brandTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandTransfer')
+        $this->brandTransferMock = $this->getMockBuilder(BrandTransfer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['requireIdBrand', 'getIdBrand'])
             ->getMock();
 
-        $this->brandCustomerRelationTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandCustomerRelationTransfer')
+        $this->brandCustomerRelationTransferMock = $this->getMockBuilder(BrandCustomerRelationTransfer::class)
             ->disableOriginalConstructor()
             ->getMock();
 

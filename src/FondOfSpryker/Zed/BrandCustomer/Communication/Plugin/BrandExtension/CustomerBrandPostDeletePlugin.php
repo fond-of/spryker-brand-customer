@@ -14,11 +14,12 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 class CustomerBrandPostDeletePlugin extends AbstractPlugin implements BrandPostDeletePluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
      * @return \Generated\Shared\Transfer\BrandTransfer
      */
     public function execute(BrandTransfer $brandTransfer): BrandResponseTransfer

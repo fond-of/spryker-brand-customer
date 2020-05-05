@@ -1,3 +1,5 @@
+namespace: fond-of-spryker/brand-customer
+
 suites:
   unit:
     path: .
@@ -16,4 +18,8 @@ paths:
 coverage:
   enabled: true
   include:
-    - src/*.php
+    - src/FondOfSpryker/*.php
+
+modules:
+  enabled:
+    - \FondOfCodeception\Module\Spryker
