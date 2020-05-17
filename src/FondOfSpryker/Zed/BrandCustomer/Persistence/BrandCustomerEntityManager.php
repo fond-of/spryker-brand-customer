@@ -12,12 +12,12 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 class BrandCustomerEntityManager extends AbstractEntityManager implements BrandCustomerEntityManagerInterface
 {
     /**
-     * @param array $idBrands
-     * @param $idCustomer
+     * @param int[] $idBrands
+     * @param int $idCustomer
      *
      * @return void
      */
-    public function addBrands(array $idBrands, $idCustomer): void
+    public function addBrands(array $idBrands, int $idCustomer): void
     {
         foreach ($idBrands as $idBrand) {
             $customerBrandEntity = new FosBrandCustomer();
@@ -28,14 +28,12 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
     }
 
     /**
-     * @param array $idBrands
+     * @param int[] $idBrands
      * @param int $idCustomer
-     *
-     * @throws
      *
      * @return void
      */
-    public function removeBrands(array $idBrands, $idCustomer): void
+    public function removeBrands(array $idBrands, int $idCustomer): void
     {
         if (count($idBrands) === 0) {
             return;

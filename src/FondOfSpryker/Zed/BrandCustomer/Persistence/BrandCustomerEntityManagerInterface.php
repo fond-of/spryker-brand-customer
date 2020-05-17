@@ -10,23 +10,23 @@ interface BrandCustomerEntityManagerInterface
      * Specification:
      * - Adds new relations between brands and customer
      *
-     * @param array $idBrands
+     * @param int[] $idBrands
      * @param int $idCustomer
      *
      * @return void
      */
-    public function addBrands(array $idBrands, $idCustomer): void;
+    public function addBrands(array $idBrands, int $idCustomer): void;
 
     /**
      * Specification:
      * - Remove relations between brands and customer
      *
-     * @param array $idBrands
+     * @param int[] $idBrands
      * @param int $idCustomer
      *
      * @return void
      */
-    public function removeBrands(array $idBrands, $idCustomer): void;
+    public function removeBrands(array $idBrands, int $idCustomer): void;
 
     /**
      * @param int $idBrand
