@@ -26,7 +26,10 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
      */
     protected $brandCustomerEntityManager;
 
-
+    /**
+     * @param \FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandCustomerRelationReaderInterface $brandCustomerRelationReader
+     * @param \FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerEntityManagerInterface $brandCustomerEntityManager
+     */
     public function __construct(
         BrandCustomerRelationReaderInterface $brandCustomerRelationReader,
         BrandCustomerEntityManagerInterface $brandCustomerEntityManager
@@ -72,6 +75,11 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
         });
     }
 
+    /**
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return \Generated\Shared\Transfer\BrandTransfer
+     */
     protected function executeSaveBrandCustomerRelationTransaction(BrandTransfer $brandTransfer): BrandTransfer
     {
         $brandTransfer->requireIdBrand();
@@ -116,6 +124,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
 
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     * @param \Generated\Shared\Transfer\BrandResponseTransfer $brandResponseTransfer
      *
      * @return \Generated\Shared\Transfer\BrandResponseTransfer
      */
@@ -123,7 +132,6 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
         BrandTransfer $brandTransfer,
         BrandResponseTransfer $brandResponseTransfer
     ): BrandResponseTransfer {
-
         $this->brandCustomerEntityManager->deleteBrandCustomerRelation($brandTransfer);
 
         $brandResponseTransfer->addMessage(

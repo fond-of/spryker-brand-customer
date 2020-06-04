@@ -42,6 +42,8 @@ interface BrandCustomerFacadeInterface
      * @api
      *
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer|null $customerBrandRelationTransfer
+     *
+     * @return void
      */
     public function saveCustomerBrandRelation(?CustomerBrandRelationTransfer $customerBrandRelationTransfer = null): void;
 
