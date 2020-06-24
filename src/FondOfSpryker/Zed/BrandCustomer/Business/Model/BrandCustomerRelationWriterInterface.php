@@ -9,9 +9,13 @@ use Generated\Shared\Transfer\CustomerBrandRelationTransfer;
 interface BrandCustomerRelationWriterInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer|null $customerBrandRelationTransfer
+     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
      */
-    public function saveCustomerBrandRelation(?CustomerBrandRelationTransfer $customerBrandRelationTransfer = null): void;
+    public function saveCustomerBrandRelation(
+        CustomerBrandRelationTransfer $customerBrandRelationTransfer
+    ): CustomerBrandRelationTransfer;
 
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
