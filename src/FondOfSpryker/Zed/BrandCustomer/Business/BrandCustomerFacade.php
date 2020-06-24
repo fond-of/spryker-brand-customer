@@ -44,13 +44,13 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
-     * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
+     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer|null $customerBrandRelationTransfer
+     *
+     * @return void
      */
-    public function saveCustomerBrandRelation(
-        CustomerBrandRelationTransfer $customerBrandRelationTransfer
-    ): CustomerBrandRelationTransfer {
-        return $this->getFactory()->createBrandCustomerRelationWriter()
+    public function saveCustomerBrandRelation(?CustomerBrandRelationTransfer $customerBrandRelationTransfer = null): void
+    {
+        $this->getFactory()->createBrandCustomerRelationWriter()
             ->saveCustomerBrandRelation($customerBrandRelationTransfer);
     }
 
@@ -81,20 +81,5 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
     {
         return $this->getFactory()->createBrandCustomerRelationWriter()
             ->deleteBrandCustomerRelation($brandTransfer);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @api
-     *
-     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
-     * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
-     */
-    public function findCustomerBrandRelationByIdCustomer(
-        CustomerBrandRelationTransfer $customerBrandRelationTransfer
-    ): CustomerBrandRelationTransfer {
-        return $this->getFactory()->createBrandCustomerRelationReader()
-            ->getCustomerBrandRelation($customerBrandRelationTransfer);
     }
 }
