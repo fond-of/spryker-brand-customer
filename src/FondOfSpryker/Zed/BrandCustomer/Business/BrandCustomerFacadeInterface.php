@@ -41,13 +41,9 @@ interface BrandCustomerFacadeInterface
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
+     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer|null $customerBrandRelationTransfer
      */
-    public function saveCustomerBrandRelation(
-        CustomerBrandRelationTransfer $customerBrandRelationTransfer
-    ): CustomerBrandRelationTransfer;
+    public function saveCustomerBrandRelation(?CustomerBrandRelationTransfer $customerBrandRelationTransfer = null): void;
 
     /**
      * Specification:
@@ -68,16 +64,4 @@ interface BrandCustomerFacadeInterface
      * @return \Generated\Shared\Transfer\BrandResponseTransfer
      */
     public function deleteBrandCustomerRelation(BrandTransfer $brandTransfer): BrandResponseTransfer;
-
-    /**
-     * Specification:
-     * - find Customer Brand relations using the customer id
-     *
-     * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
-     */
-    public function findCustomerBrandRelationByIdCustomer(
-        CustomerBrandRelationTransfer $customerBrandRelationTransfer
-    ): CustomerBrandRelationTransfer;
 }
