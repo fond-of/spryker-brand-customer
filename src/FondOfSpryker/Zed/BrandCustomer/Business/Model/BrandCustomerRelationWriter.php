@@ -27,8 +27,6 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
     protected $brandCustomerEntityManager;
 
     /**
-     * BrandCustomerRelationWriter constructor.
-     *
      * @param \FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandCustomerRelationReaderInterface $brandCustomerRelationReader
      * @param \FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerEntityManagerInterface $brandCustomerEntityManager
      */
@@ -146,6 +144,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
 
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     * @param \Generated\Shared\Transfer\BrandResponseTransfer $brandResponseTransfer
      *
      * @return \Generated\Shared\Transfer\BrandResponseTransfer
      */
