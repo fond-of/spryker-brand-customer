@@ -26,7 +26,12 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
      */
     protected $brandCustomerEntityManager;
 
-
+    /**
+     * BrandCustomerRelationWriter constructor.
+     *
+     * @param \FondOfSpryker\Zed\BrandCustomer\Business\Model\BrandCustomerRelationReaderInterface $brandCustomerRelationReader
+     * @param \FondOfSpryker\Zed\BrandCustomer\Persistence\BrandCustomerEntityManagerInterface $brandCustomerEntityManager
+     */
     public function __construct(
         BrandCustomerRelationReaderInterface $brandCustomerRelationReader,
         BrandCustomerEntityManagerInterface $brandCustomerEntityManager
