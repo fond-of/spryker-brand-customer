@@ -15,7 +15,7 @@ interface BrandCustomerEntityManagerInterface
      *
      * @return void
      */
-    public function addBrands(array $idBrands, $idCustomer): void;
+    public function addBrands(array $idBrands, int $idCustomer): void;
 
     /**
      * Specification:
@@ -26,7 +26,7 @@ interface BrandCustomerEntityManagerInterface
      *
      * @return void
      */
-    public function removeBrands(array $idBrands, $idCustomer): void;
+    public function removeBrands(array $idBrands, int $idCustomer): void;
 
     /**
      * @param int $idBrand
@@ -46,6 +46,8 @@ interface BrandCustomerEntityManagerInterface
 
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return void
      */
     public function deleteBrandCustomerRelation(BrandTransfer $brandTransfer): void;
 }

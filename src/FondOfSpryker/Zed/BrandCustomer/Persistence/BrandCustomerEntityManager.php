@@ -13,11 +13,11 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
 {
     /**
      * @param array $idBrands
-     * @param $idCustomer
+     * @param int $idCustomer
      *
      * @return void
      */
-    public function addBrands(array $idBrands, $idCustomer): void
+    public function addBrands(array $idBrands, int $idCustomer): void
     {
         foreach ($idBrands as $idBrand) {
             $customerBrandEntity = new FosBrandCustomer();
@@ -31,11 +31,9 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
      * @param array $idBrands
      * @param int $idCustomer
      *
-     * @throws
-     *
      * @return void
      */
-    public function removeBrands(array $idBrands, $idCustomer): void
+    public function removeBrands(array $idBrands, int $idCustomer): void
     {
         if (count($idBrands) === 0) {
             return;
@@ -88,6 +86,8 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
     }
 
     /**
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
      * @return void
      */
     public function deleteBrandCustomerRelation(BrandTransfer $brandTransfer): void
