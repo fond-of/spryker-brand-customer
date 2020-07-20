@@ -4,6 +4,7 @@ namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Zed\BrandCustomer\Business\BrandCustomerFacade;
+use FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer\BrandCustomerTransferExpanderPlugin;
 use Generated\Shared\Transfer\CustomerTransfer;
 
 class BrandCustomerTransferExpanderPluginTest extends Unit
@@ -11,7 +12,7 @@ class BrandCustomerTransferExpanderPluginTest extends Unit
     /**
      * @var \FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer\BrandCustomerTransferExpanderPlugin
      */
-    protected $brandCustomerTransferExpander;
+    protected $brandCustomerTransferExpanderPlugin;
 
     /**
      * @var \Generated\Shared\Transfer\CustomerTransfer|\PHPUnit\Framework\MockObject\MockObject
@@ -38,8 +39,8 @@ class BrandCustomerTransferExpanderPluginTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->brandCustomerTransferExpander = new BrandCustomerTransferExpanderPlugin();
-        $this->brandCustomerTransferExpander->setFacade($this->brandCustomerFacade);
+        $this->brandCustomerTransferExpanderPlugin = new BrandCustomerTransferExpanderPlugin();
+        $this->brandCustomerTransferExpanderPlugin->setFacade($this->brandCustomerFacade);
     }
 
     /**
@@ -52,7 +53,7 @@ class BrandCustomerTransferExpanderPluginTest extends Unit
             ->with($this->customerTransferMock)
             ->willReturn($this->customerTransferMock);
 
-        $customerTransfer = $this->brandCustomerTransferExpander->expandTransfer($this->customerTransferMock);
+        $customerTransfer = $this->brandCustomerTransferExpanderPlugin->expandTransfer($this->customerTransferMock);
 
         $this->assertEquals($this->customerTransferMock, $customerTransfer);
     }
