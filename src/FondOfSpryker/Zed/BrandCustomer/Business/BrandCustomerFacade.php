@@ -53,6 +53,7 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      * @api
      *
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
+     *
      * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
      */
     public function saveCustomerBrandRelation(
@@ -98,6 +99,7 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      * @api
      *
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
+     *
      * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
      */
     public function findCustomerBrandRelationByIdCustomer(
