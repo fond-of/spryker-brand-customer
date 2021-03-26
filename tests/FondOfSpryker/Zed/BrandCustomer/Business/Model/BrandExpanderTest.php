@@ -39,7 +39,7 @@ class BrandExpanderTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->brandCustomerRelationTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandCustomerRelationTransfer')
+        $this->brandCustomerRelationTransferMock = $this->getMockBuilder(BrandCustomerRelationTransfer::class)
             ->disableOriginalConstructor()
             ->getMock();
 

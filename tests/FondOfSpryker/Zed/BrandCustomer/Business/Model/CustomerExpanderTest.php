@@ -3,6 +3,8 @@
 namespace FondOfSpryker\Zed\BrandCustomer\Business\Model;
 
 use Codeception\Test\Unit;
+use Generated\Shared\Transfer\BrandCollectionTransfer;
+use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 
 class CustomerExpanderTest extends Unit
@@ -46,19 +48,16 @@ class CustomerExpanderTest extends Unit
             ->getMock();
 
         $this->brandsMock = [
-            $this->getMockBuilder('\Generated\Shared\Transfer\BrandTransfer')
+            $this->getMockBuilder(BrandTransfer::class)
                 ->disableOriginalConstructor()
-                ->setMethods(['getType', 'getIdBrand'])
                 ->getMock(),
-            $this->getMockBuilder('\Generated\Shared\Transfer\BrandTransfer')
+            $this->getMockBuilder(BrandTransfer::class)
                 ->disableOriginalConstructor()
-                ->setMethods(['getType', 'getIdBrand'])
                 ->getMock(),
         ];
 
-        $this->brandCollectionTransferMock = $this->getMockBuilder('\Generated\Shared\Transfer\BrandCollectionTransfer')
+        $this->brandCollectionTransferMock = $this->getMockBuilder(BrandCollectionTransfer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getBrands'])
             ->getMock();
 
         $this->customerExpander = new CustomerExpander($this->brandReaderMock);

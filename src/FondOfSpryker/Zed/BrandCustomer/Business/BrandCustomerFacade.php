@@ -16,6 +16,10 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeInterface
 {
     /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
@@ -28,6 +32,10 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
      * @return \Generated\Shared\Transfer\BrandTransfer
@@ -45,6 +53,7 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      * @api
      *
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
+     *
      * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
      */
     public function saveCustomerBrandRelation(
@@ -60,6 +69,7 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      * @api
      *
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
      * @return \Generated\Shared\Transfer\BrandTransfer
      */
     public function saveBrandCustomerRelation(BrandTransfer $brandTransfer): BrandTransfer
@@ -69,13 +79,13 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
     }
 
     /**
-     *
      * {@inheritDoc}
      *
      * @api
      *
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
-     * @return \FondOfSpryker\Zed\BrandCompany\Business\BrandResponseTransfer
+     *
+     * @return \Generated\Shared\Transfer\BrandResponseTransfer
      */
     public function deleteBrandCustomerRelation(BrandTransfer $brandTransfer): BrandResponseTransfer
     {
@@ -89,6 +99,7 @@ class BrandCustomerFacade extends AbstractFacade implements BrandCustomerFacadeI
      * @api
      *
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
+     *
      * @return \Generated\Shared\Transfer\CustomerBrandRelationTransfer
      */
     public function findCustomerBrandRelationByIdCustomer(

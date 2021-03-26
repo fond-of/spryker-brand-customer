@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin;
+namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Zed\BrandCustomer\Business\BrandCustomerFacade;

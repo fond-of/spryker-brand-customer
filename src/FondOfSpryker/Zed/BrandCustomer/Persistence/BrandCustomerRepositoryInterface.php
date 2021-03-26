@@ -23,7 +23,7 @@ interface BrandCustomerRepositoryInterface
     public function getCustomerCollectionByBrandId(int $idBrand): BrandCustomerRelationTransfer;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *

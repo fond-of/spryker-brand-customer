@@ -59,7 +59,6 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
     protected function executeSaveCustomerBrandRelationTransaction(
         CustomerBrandRelationTransfer $customerBrandRelationTransfer
     ): CustomerBrandRelationTransfer {
-
         $customerBrandRelationTransfer->requireIdCustomer();
 
         if (count($customerBrandRelationTransfer->getIdBrands()) === 0) {
@@ -152,7 +151,6 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
         BrandTransfer $brandTransfer,
         BrandResponseTransfer $brandResponseTransfer
     ): BrandResponseTransfer {
-
         $this->brandCustomerEntityManager->deleteBrandCustomerRelation($brandTransfer);
 
         $brandResponseTransfer->addMessage(

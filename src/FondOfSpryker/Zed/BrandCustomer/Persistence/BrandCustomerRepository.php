@@ -66,13 +66,11 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *
-     * @param int $idCompany
-     *
-     * @throws
+     * @param int $idCustomer
      *
      * @return \ArrayObject|\Generated\Shared\Transfer\BrandTransfer[]
      */

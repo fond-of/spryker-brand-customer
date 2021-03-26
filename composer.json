@@ -11,15 +11,15 @@
             "name": "Felix Pfister",
             "email": "mail@felix-pfister.de"
         },
-        {
-            "name": "József Geng",
-            "email": "gengjozsef86@gmail.com"
-        }
+      {
+        "name": "József Geng",
+        "email": "gengjozsef86@gmail.com"
+      }
     ],
     "require": {
         "php": ">=7.1",
         "fond-of-spryker/brand": "dev-master",
-        "spryker/customer": "^7.0.0"
+        "spryker/customer": "^6.3.0 || ^7.0.0"
     },
     "require-dev": {
         "spryker/code-sniffer": "^0.12",
@@ -27,7 +27,8 @@
         "mikey179/vfsstream": "^1.6",
         "phpro/grumphp": "^0.14",
         "sebastian/phpcpd": "^4.0",
-        "php-coveralls/php-coveralls": "^2.1"
+        "php-coveralls/php-coveralls": "^2.1",
+        "fond-of-codeception/spryker": "^1.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

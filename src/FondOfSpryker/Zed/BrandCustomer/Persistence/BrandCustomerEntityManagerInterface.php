@@ -10,7 +10,7 @@ interface BrandCustomerEntityManagerInterface
      * Specification:
      * - Adds new relations between brands and customer
      *
-     * @param array $idBrands
+     * @param int[] $idBrands
      * @param int $idCustomer
      *
      * @return void
@@ -21,7 +21,7 @@ interface BrandCustomerEntityManagerInterface
      * Specification:
      * - Remove relations between brands and customer
      *
-     * @param array $idBrands
+     * @param int[] $idBrands
      * @param int $idCustomer
      *
      * @return void
