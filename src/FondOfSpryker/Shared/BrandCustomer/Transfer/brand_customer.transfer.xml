@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <transfers xmlns="spryker:transfer-01"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
-
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="spryker:transfer-01 https://static.spryker.com/transfer-01.xsd">
     <transfer name="Brand">
         <property name="brandCustomerRelation" type="BrandCustomerRelation"/>
     </transfer>
@@ -26,4 +25,12 @@
         <property name="idBrand" type="int"/>
     </transfer>
 
+    <transfer name="BrandResponse">
+        <property name="brand" type="Brand"/>
+        <property name="messages" type="Message[]" singular="message"/>
+    </transfer>
+
+    <transfer name="Message">
+        <property name="value" type="string"/>
+    </transfer>
 </transfers>

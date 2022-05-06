@@ -4,7 +4,6 @@ namespace FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Zed\BrandCustomer\Business\BrandCustomerFacade;
-use FondOfSpryker\Zed\BrandCustomer\Communication\Plugin\Customer\BrandCustomerTransferExpanderPlugin;
 use Generated\Shared\Transfer\CustomerTransfer;
 
 class BrandCustomerTransferExpanderPluginTest extends Unit

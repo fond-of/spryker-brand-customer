@@ -35,7 +35,7 @@ class BrandCustomerBusinessFactory extends AbstractBusinessFactory
     public function createBrandCustomerRelationReader(): BrandCustomerRelationReaderInterface
     {
         return new BrandCustomerRelationReader(
-            $this->getRepository()
+            $this->getRepository(),
         );
     }
 
@@ -46,7 +46,7 @@ class BrandCustomerBusinessFactory extends AbstractBusinessFactory
     {
         return new BrandCustomerRelationWriter(
             $this->createBrandCustomerRelationReader(),
-            $this->getEntityManager()
+            $this->getEntityManager(),
         );
     }
 

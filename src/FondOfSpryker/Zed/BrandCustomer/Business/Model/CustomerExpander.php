@@ -30,7 +30,7 @@ class CustomerExpander implements CustomerExpanderInterface
         $customerTransfer->setBrandCollection(new BrandCollectionTransfer());
 
         $brandCollectionTransfer = $this->brandReader->getBrandCollectionByIdCustomerId(
-            $customerTransfer
+            $customerTransfer,
         );
 
         $this->addBrandsToCustomerTransfer($customerTransfer, $brandCollectionTransfer);

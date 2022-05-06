@@ -14,6 +14,9 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
 {
     use TransactionTrait;
 
+    /**
+     * @var string
+     */
     protected const MESSAGE_BRAND_DELETE_SUCCESS = 'Brand has been successfully removed.';
 
     /**
@@ -76,7 +79,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
         $this->brandCustomerEntityManager->removeBrands($deleteBrandIds, $idCustomer);
 
         $customerBrandRelationTransfer->setIdBrands(
-            $this->getRelatedBrandIds($customerBrandRelationTransfer)
+            $this->getRelatedBrandIds($customerBrandRelationTransfer),
         );
 
         return $customerBrandRelationTransfer;
@@ -119,7 +122,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
         $this->brandCustomerEntityManager->removeCustomerRelations($idBrand, $deleteCustomerIds);
 
         $brandCustomerRelationTransfer->setCustomerIds(
-            $this->getRelatedCustomerIds($brandCustomerRelationTransfer)
+            $this->getRelatedCustomerIds($brandCustomerRelationTransfer),
         );
 
         return $brandTransfer;
@@ -154,7 +157,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
         $this->brandCustomerEntityManager->deleteBrandCustomerRelation($brandTransfer);
 
         $brandResponseTransfer->addMessage(
-            (new MessageTransfer())->setValue(static::MESSAGE_BRAND_DELETE_SUCCESS)
+            (new MessageTransfer())->setValue(static::MESSAGE_BRAND_DELETE_SUCCESS),
         );
 
         return $brandResponseTransfer;
@@ -195,7 +198,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
     /**
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
      *
-     * @return int[]
+     * @return array<int>
      */
     protected function getRelatedBrandIds(
         CustomerBrandRelationTransfer $customerBrandRelationTransfer
@@ -213,7 +216,7 @@ class BrandCustomerRelationWriter implements BrandCustomerRelationWriterInterfac
     /**
      * @param \Generated\Shared\Transfer\CustomerBrandRelationTransfer $customerBrandRelationTransfer
      *
-     * @return int[]
+     * @return array<int>
      */
     protected function getRequestedBrandIds(
         CustomerBrandRelationTransfer $customerBrandRelationTransfer
