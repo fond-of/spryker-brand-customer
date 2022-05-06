@@ -12,7 +12,7 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 class BrandCustomerEntityManager extends AbstractEntityManager implements BrandCustomerEntityManagerInterface
 {
     /**
-     * @param int[] $idBrands
+     * @param array<int> $idBrands
      * @param int $idCustomer
      *
      * @return void
@@ -28,7 +28,7 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
     }
 
     /**
-     * @param int[] $idBrands
+     * @param array<int> $idBrands
      * @param int $idCustomer
      *
      * @return void
@@ -48,7 +48,7 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
 
     /**
      * @param int $idBrand
-     * @param int[] $customerIds
+     * @param array<int> $customerIds
      *
      * @return void
      */
@@ -64,7 +64,7 @@ class BrandCustomerEntityManager extends AbstractEntityManager implements BrandC
 
     /**
      * @param int $idBrand
-     * @param int[] $customerIds
+     * @param array<int> $customerIds
      *
      * @return void
      */

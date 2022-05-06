@@ -21,7 +21,7 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
      */
     public function getBrandCollectionByIdCustomer(int $idCustomer): BrandCollectionTransfer
     {
-        /** @var \Orm\Zed\Brand\Persistence\FosBrand[] $brandEntities */
+        /** @var array<\Orm\Zed\Brand\Persistence\FosBrand> $brandEntities */
         $brandEntities = $this->getFactory()
             ->getBrandQuery()
             ->useFosBrandCustomerQuery()
@@ -34,7 +34,7 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
 
         foreach ($brandEntities as $brandEntity) {
             $brandCollectionTransfer->addBrand(
-                $brandCustomerMapper->mapBrand($brandEntity, new BrandTransfer())
+                $brandCustomerMapper->mapBrand($brandEntity, new BrandTransfer()),
             );
         }
 
@@ -48,7 +48,7 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
      */
     public function getCustomerCollectionByBrandId(int $idBrand): BrandCustomerRelationTransfer
     {
-        /** @var \Orm\Zed\BrandCustomer\Persistence\FosBrandCustomer[] $brandCustomerEntities */
+        /** @var array<\Orm\Zed\BrandCustomer\Persistence\FosBrandCustomer> $brandCustomerEntities */
         $brandCustomerEntities = $this->getFactory()
             ->getBrandCustomerQuery()
             ->findByFkBrand($idBrand);
@@ -72,7 +72,7 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
      *
      * @param int $idCustomer
      *
-     * @return \ArrayObject|\Generated\Shared\Transfer\BrandTransfer[]
+     * @return \ArrayObject<\Generated\Shared\Transfer\BrandTransfer>
      */
     public function getRelatedBrandsByCustomerId(int $idCustomer): ArrayObject
     {
@@ -98,7 +98,7 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
     /**
      * @param int $idBrand
      *
-     * @return int[]
+     * @return array<int>
      */
     public function getRelatedCustomerIdsByIdBrand(int $idBrand): array
     {

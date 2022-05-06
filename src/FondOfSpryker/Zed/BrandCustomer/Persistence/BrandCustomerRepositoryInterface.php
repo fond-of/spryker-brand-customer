@@ -29,14 +29,14 @@ interface BrandCustomerRepositoryInterface
      *
      * @param int $idCustomer
      *
-     * @return \Generated\Shared\Transfer\BrandTransfer[]|\ArrayObject
+     * @return \ArrayObject<\Generated\Shared\Transfer\BrandTransfer>
      */
     public function getRelatedBrandsByCustomerId(int $idCustomer): ArrayObject;
 
     /**
      * @param int $idBrand
      *
-     * @return int[]
+     * @return array<int>
      */
     public function getRelatedCustomerIdsByIdBrand(int $idBrand): array;
 }
