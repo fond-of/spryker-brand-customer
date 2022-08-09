@@ -107,7 +107,8 @@ class BrandCustomerRepository extends AbstractRepository implements BrandCustome
             ->select(FosBrandCustomerTableMap::COL_FK_CUSTOMER);
 
         return $brandCustomerQuery
-            ->findByFkBrand($idBrand)
+            ->filterByFkBrand($idBrand)
+            ->find()
             ->toArray();
     }
 }
